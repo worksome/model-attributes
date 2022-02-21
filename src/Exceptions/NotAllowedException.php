@@ -4,6 +4,6 @@ declare(strict_types=1);
 
 namespace  Worsome\ModelAttributes\Exceptions;
 
-class NotAllowedException extends ModelAttributeException
+final class NotAllowedException extends ModelAttributeException
 {
 }

@@ -6,11 +6,15 @@ namespace Worsome\ModelAttributes\Contracts;
 
 /**
  * The contract that model attributes must implement in order to convert them to their values.
+ *
+ * @template TValue
  */
 interface AttributeInterface
 {
     /**
      * Gets the attribute value.
+     *
+     * @return TValue
      */
     public function getValue(): mixed;
 }

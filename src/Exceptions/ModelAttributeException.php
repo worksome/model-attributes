@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
-namespace  Worsome\ModelAttributes\Exceptions;
+namespace Worsome\ModelAttributes\Exceptions;
 
-class ModelAttributeException extends \RuntimeException
+use RuntimeException;
+
+abstract class ModelAttributeException extends RuntimeException
 {
 }

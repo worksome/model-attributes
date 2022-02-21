@@ -10,6 +10,9 @@ use Illuminate\Support\Str;
 use Worsome\ModelAttributes\Concerns\DisallowOnModelAttributesTrait;
 use Worsome\ModelAttributes\Contracts\AttributeInterface;
 
+/**
+ * @implements AttributeInterface<ModelAttribute>
+ */
 abstract class ModelAttribute extends Model implements AttributeInterface
 {
     use DisallowOnModelAttributesTrait;
@@ -26,7 +29,7 @@ abstract class ModelAttribute extends Model implements AttributeInterface
     /**
      * Defines the attribute global scope that must be added to the model attribute.
      */
-    abstract protected static function attributeGlobalScope(Builder $query): void;
+    abstract public static function attributeGlobalScope(Builder $query): void;
 
     public function getValue(): mixed
     {
