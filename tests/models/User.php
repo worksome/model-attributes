@@ -8,10 +8,10 @@ use Worksome\ModelAttributes\Tests\Models\Attributes\FullName;
 
 final class User extends Model
 {
-    public function fullName()
+    public function fullName(): AttributeRelation
     {
         return new AttributeRelation(
-            $this->hasOne(FullName::class, 'user_id', 'id')
+            $this->hasOne(FullName::class, 'id', 'user_id')
         );
     }
 }

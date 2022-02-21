@@ -20,12 +20,12 @@ class AttributeRelation extends Relation
 
     public function addConstraints(): void
     {
-        $this->relation->{__FUNCTION__}(...func_get_args());
+        $this->relation->addConstraints();
     }
 
     public function addEagerConstraints(array $models): void
     {
-        $this->relation->{__FUNCTION__}(...func_get_args());
+        $this->relation->addEagerConstraints($models);
     }
 
     /**
@@ -34,7 +34,7 @@ class AttributeRelation extends Relation
      */
     public function initRelation(array $models, $relation): array
     {
-        return $this->relation->{__FUNCTION__}(...func_get_args());
+        return $this->relation->initRelation($models, $relation);
     }
 
     /**
@@ -43,7 +43,7 @@ class AttributeRelation extends Relation
      */
     public function match(array $models, Collection $results, $relation): array
     {
-        $this->relation->{__FUNCTION__}(...func_get_args());
+        $this->relation->match($models, $results, $relation);
 
         foreach ($models as $model) {
             $model->setRelation(
@@ -60,8 +60,6 @@ class AttributeRelation extends Relation
      */
     public function getResults(): mixed
     {
-        $results = $this->relation->{__FUNCTION__}(...func_get_args());
-
-        return $results?->getValue();
+        return $this->relation->getResults()?->getValue();
     }
 }

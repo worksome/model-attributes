@@ -1,6 +1,7 @@
 <?php
 
 
+use Worksome\ModelAttributes\AttributeRelation;
 use Worksome\ModelAttributes\Tests\Database\Factories\UserFactory;
 use Worksome\ModelAttributes\Tests\Models\Attributes\FullName;
 
@@ -10,6 +11,7 @@ it('can retrieve model attributes', function (string $firstName, string $lastNam
         'last_name' => $lastName,
     ]);
 
+    expect($user->fullName())->toBeInstanceOf(AttributeRelation::class);
     expect($user->fullName)->toBeInstanceOf(FullName::class);
     expect($user->fullName->full_name)->toEqual($fullName);
 })
