@@ -7,7 +7,7 @@ namespace Worksome\ModelAttributes\Tests\Models\Attributes;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 use Worksome\ModelAttributes\Tests\Models\User;
-use Worsome\ModelAttributes\ModelAttribute;
+use Worksome\ModelAttributes\ModelAttribute;
 
 class FullName extends ModelAttribute
 {

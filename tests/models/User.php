@@ -3,8 +3,8 @@
 namespace Worksome\ModelAttributes\Tests\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Worksome\ModelAttributes\AttributeRelation;
 use Worksome\ModelAttributes\Tests\Models\Attributes\FullName;
-use Worsome\ModelAttributes\AttributeRelation;
 
 final class User extends Model
 {

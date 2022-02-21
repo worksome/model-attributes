@@ -13,6 +13,8 @@ class UserFactory extends Factory
 {
     use WithFaker;
 
+    protected $model = User::class;
+
     /**
      * @return array<string, mixed>
      */
