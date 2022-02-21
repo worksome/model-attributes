@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace  Worsome\ModelAttributes\Concerns;
+namespace Worksome\ModelAttributes\Concerns;
 
-use Worsome\ModelAttributes\Exceptions\NotAllowedException;
+use Worksome\ModelAttributes\Exceptions\NotAllowedException;
 
 trait DisallowOnModelAttributesTrait
 {

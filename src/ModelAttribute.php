@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace  Worsome\ModelAttributes;
+namespace Worksome\ModelAttributes;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-use Worsome\ModelAttributes\Concerns\DisallowOnModelAttributesTrait;
-use Worsome\ModelAttributes\Contracts\AttributeInterface;
+use Worksome\ModelAttributes\Concerns\DisallowOnModelAttributesTrait;
+use Worksome\ModelAttributes\Contracts\AttributeInterface;
 
 /**
  * @implements AttributeInterface<ModelAttribute>

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace  Worsome\ModelAttributes;
+namespace Worksome\ModelAttributes;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
@@ -13,6 +13,8 @@ use Illuminate\Database\Eloquent\Relations\Relation;
  */
 class AttributeRelation extends Relation
 {
+    protected static $constraints = false;
+
     public function __construct(private Relation $relation)
     {
         parent::__construct($relation->getQuery(), $relation->getRelated());
@@ -20,12 +22,14 @@ class AttributeRelation extends Relation
 
     public function addConstraints(): void
     {
-        $this->relation->{__FUNCTION__}(...func_get_args());
+        if (static::$constraints) {
+            $this->relation->addConstraints();
+        }
     }
 
     public function addEagerConstraints(array $models): void
     {
-        $this->relation->{__FUNCTION__}(...func_get_args());
+        $this->relation->addEagerConstraints($models);
     }
 
     /**
@@ -34,7 +38,7 @@ class AttributeRelation extends Relation
      */
     public function initRelation(array $models, $relation): array
     {
-        return $this->relation->{__FUNCTION__}(...func_get_args());
+        return $this->relation->initRelation($models, $relation);
     }
 
     /**
@@ -43,7 +47,7 @@ class AttributeRelation extends Relation
      */
     public function match(array $models, Collection $results, $relation): array
     {
-        $this->relation->{__FUNCTION__}(...func_get_args());
+        $models = $this->relation->match($models, $results, $relation);
 
         foreach ($models as $model) {
             $model->setRelation(
@@ -60,8 +64,6 @@ class AttributeRelation extends Relation
      */
     public function getResults(): mixed
     {
-        $results = $this->relation->{__FUNCTION__}(...func_get_args());
-
-        return $results?->getValue();
+        return $this->relation->getResults()?->getValue();
     }
 }
