@@ -4,7 +4,6 @@ namespace Worksome\ModelAttributes\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Worksome\ModelAttributes\ModelAttributesServiceProvider;
 
 class TestCase extends Orchestra
 {
