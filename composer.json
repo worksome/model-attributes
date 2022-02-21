@@ -33,7 +33,6 @@
     "autoload": {
         "psr-4": {
             "Worksome\\ModelAttributes\\": "src",
-            "Worksome\\ModelAttributes\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
