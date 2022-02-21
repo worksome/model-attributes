@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "worksome/model-attributes",
+    "description": "This is my package model-attributes",
     "keywords": [
-        ":vendor_name",
+        "Worksome",
         "laravel",
-        ":package_slug"
+        "model-attributes"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/worksome/model-attributes",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Marian Hodorogea",
+            "email": "ahmes86@gmail.com",
             "role": "Developer"
         }
     ],
@@ -32,13 +32,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Worksome\\ModelAttributes\\": "src",
+            "Worksome\\ModelAttributes\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Worksome\\ModelAttributes\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -54,15 +54,20 @@
         ]
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "worksome/coding-style": true
+        }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Worksome\\ModelAttributes\\ModelAttributesServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "ModelAttributes": "Worksome\\ModelAttributes\\Facades\\ModelAttributes"
             }
         }
     },

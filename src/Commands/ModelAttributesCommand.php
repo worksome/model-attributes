@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Worksome\ModelAttributes\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class ModelAttributesCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'model-attributes';
 
     public $description = 'My command';
 
