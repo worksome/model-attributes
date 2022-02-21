@@ -37,7 +37,9 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Worksome\\ModelAttributes\\Tests\\": "tests"
+            "Worksome\\ModelAttributes\\Tests\\": "tests",
+            "Worksome\\ModelAttributes\\Tests\\Database\\Factories\\": "tests/database/factories",
+            "Worksome\\ModelAttributes\\Tests\\Models\\": "tests/models"
         }
     },
     "scripts": {
