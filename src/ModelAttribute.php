@@ -20,15 +20,13 @@ abstract class ModelAttribute extends Model implements AttributeInterface
 
         $scopeName = Str::beforeLast(class_basename(static::class), 'Attribute');
 
-        static::addGlobalScope($scopeName, function (Builder $query) {
-            return static::attributeGlobalScope($query);
-        });
+        static::addGlobalScope($scopeName, fn (Builder $query) => static::attributeGlobalScope($query));
     }
 
     /**
      * Defines the attribute global scope that must be added to the model attribute.
      */
-    abstract protected static function attributeGlobalScope(Builder $query);
+    abstract protected static function attributeGlobalScope(Builder $query): void;
 
     public function getValue(): mixed
     {

@@ -2,7 +2,6 @@
 
 namespace Worksome\ModelAttributes\Tests;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
@@ -21,7 +20,7 @@ class TestCase extends Orchestra
     {
         config()->set('database.default', 'testing');
 
-        $migration = include __DIR__. '/database/migrations/users.php.stub';
+        $migration = include __DIR__ . '/database/migrations/users.php.stub';
         $migration->up();
     }
 }

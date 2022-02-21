@@ -8,7 +8,7 @@ use Worsome\ModelAttributes\Exceptions\NotAllowedException;
 
 trait DisallowOnModelAttributesTrait
 {
-    public static function bootDisallowOnModelAttributesTrait()
+    public static function bootDisallowOnModelAttributesTrait(): void
     {
         static::creating(fn() => throw new NotAllowedException('Creating on model attributes is not allowed'));
         static::saving(fn() => throw new NotAllowedException('Saving on model attributes is not allowed'));

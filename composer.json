@@ -32,7 +32,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Worksome\\ModelAttributes\\": "src",
+            "Worksome\\ModelAttributes\\": "src"
         }
     },
     "autoload-dev": {
