@@ -61,16 +61,6 @@
             "worksome/coding-style": true
         }
     },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Worksome\\ModelAttributes\\ModelAttributesServiceProvider"
-            ],
-            "aliases": {
-                "ModelAttributes": "Worksome\\ModelAttributes\\Facades\\ModelAttributes"
-            }
-        }
-    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }
