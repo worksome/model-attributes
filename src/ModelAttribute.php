@@ -17,13 +17,15 @@ abstract class ModelAttribute extends Model implements AttributeInterface
 {
     use DisallowOnModelAttributesTrait;
 
-    public static function booting()
+    public static function booted()
     {
-        parent::booting();
+        parent::booted();
 
         $scopeName = Str::beforeLast(class_basename(static::class), 'Attribute');
 
-        static::addGlobalScope($scopeName, fn (Builder $query) => static::attributeGlobalScope($query));
+        static::addGlobalScope($scopeName, function (Builder $query) {
+            static::attributeGlobalScope($query);
+        });
     }
 
     /**

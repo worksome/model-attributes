@@ -4,8 +4,12 @@ declare(strict_types=1);
 
 namespace Worksome\ModelAttributes\Concerns;
 
+use Illuminate\Database\Eloquent\Model;
 use Worksome\ModelAttributes\Exceptions\NotAllowedException;
 
+/**
+ * @mixin Model
+ */
 trait DisallowOnModelAttributesTrait
 {
     public static function bootDisallowOnModelAttributesTrait(): void
