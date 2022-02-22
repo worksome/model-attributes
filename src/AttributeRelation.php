@@ -7,6 +7,7 @@ namespace Worksome\ModelAttributes;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Support\Enumerable;
 
 /**
  * @template TValue
@@ -64,6 +65,14 @@ class AttributeRelation extends Relation
      */
     public function getResults(): mixed
     {
-        return $this->relation->getResults()?->getValue();
+        $results = $this->relation->getResults();
+
+        if ($results instanceof Enumerable) {
+            $results = $results->each?->getValue();
+        } else {
+            $results = $results?->getValue();
+        }
+
+        return $results;
     }
 }

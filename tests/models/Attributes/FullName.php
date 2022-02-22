@@ -6,7 +6,6 @@ namespace Worksome\ModelAttributes\Tests\Models\Attributes;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 use Worksome\ModelAttributes\ModelAttribute;
 use Worksome\ModelAttributes\Tests\Models\User;
 
@@ -23,8 +22,8 @@ class FullName extends ModelAttribute
         $userModel = new User();
 
         $query->addSelect(
-            DB::raw($userModel->getQualifiedKeyName() . ' AS '. self::KEY),
-            DB::raw($userModel->getQualifiedKeyName() . ' AS '. $userModel->getForeignKey()),
+            DB::raw($userModel->getQualifiedKeyName() . ' AS ' . self::KEY),
+            DB::raw($userModel->getQualifiedKeyName() . ' AS ' . $userModel->getForeignKey()),
             DB::raw('(first_name || " " || last_name) AS full_name'), // sqlite concatenation operator
         );
     }
