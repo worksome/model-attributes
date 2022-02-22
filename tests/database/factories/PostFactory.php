@@ -21,7 +21,12 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name,
+            'name' => $this->faker->randomElement([
+                'How to cook things',
+                '10 reasons to like testing',
+                'Winner winner chicken dinner',
+                'The new Star Wars block buster movie sets new earnings record on the first weekend',
+            ]),
         ];
     }
 
