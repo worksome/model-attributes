@@ -41,22 +41,22 @@ final class User extends Model
         );
     }
 
-    public function roles()
-    {
-        return $this->belongsToMany(Role::class);
-    }
-
     public function roleNames()
     {
         return new AttributeRelation(
             $this->belongsToMany(
                 RoleName::class,
-                    $this->roles()->getTable(),
+                $this->roles()->getTable(),
                 $this->roles()->getQualifiedForeignPivotKeyName(),
                 $this->roles()->getQualifiedRelatedPivotKeyName(),
                 $this->roles()->getParentKeyName(),
                 $this->roles()->getRelatedKeyName(),
             )
         );
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
     }
 }

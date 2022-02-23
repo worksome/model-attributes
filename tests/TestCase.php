@@ -21,6 +21,10 @@ class TestCase extends Orchestra
             include __DIR__ . '/database/migrations/projects.php.stub',
             include __DIR__ . '/database/migrations/environments.php.stub',
             include __DIR__ . '/database/migrations/deployments.php.stub',
+            include __DIR__ . '/database/migrations/images.php.stub',
+            include __DIR__ . '/database/migrations/comments.php.stub',
+            include __DIR__ . '/database/migrations/tags.php.stub',
+            include __DIR__ . '/database/migrations/taggables.php.stub',
         ];
 
         foreach ($migrations as $migration) {

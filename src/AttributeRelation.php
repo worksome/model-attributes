@@ -11,11 +11,15 @@ use Illuminate\Support\Enumerable;
 
 /**
  * @template TValue
+ * @extends Relation<TValue>
  */
 class AttributeRelation extends Relation
 {
     protected static $constraints = false;
 
+    /**
+     * @param Relation<TRelatedModel> $relation
+     */
     public function __construct(private Relation $relation)
     {
         parent::__construct($relation->getQuery(), $relation->getRelated());
@@ -43,8 +47,8 @@ class AttributeRelation extends Relation
     }
 
     /**
-     * @param array<int, Model> $models
-     * @return array<int, Model>
+     * @param array|Model[] $models
+     * @return array|Model[] $results
      */
     public function match(array $models, Collection $results, $relation): array
     {
@@ -74,5 +78,23 @@ class AttributeRelation extends Relation
         }
 
         return $results;
+    }
+
+    public function __call($name, $arguments)
+    {
+        return $this->relation->{$name}(...$arguments);
+    }
+
+    /**
+     * @param string $key
+     * @return mixed
+     */
+    public function __get($key): mixed
+    {
+        if (property_exists($this->relation, $key) === false) {
+            throw new \InvalidArgumentException("There is no '{$key}' property on " . $this->relation::class);
+        }
+
+        return $this->relation->{$key};
     }
 }

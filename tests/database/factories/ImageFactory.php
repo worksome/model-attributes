@@ -4,16 +4,16 @@ namespace Worksome\ModelAttributes\Tests\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Foundation\Testing\WithFaker;
-use Worksome\ModelAttributes\Tests\Models\Owner;
+use Worksome\ModelAttributes\Tests\Models\Image;
 
 /**
- * @extends Factory<Owner>
+ * @extends Factory<Image>
  */
-class OwnerFactory extends Factory
+class ImageFactory extends Factory
 {
     use WithFaker;
 
-    protected $model = Owner::class;
+    protected $model = Image::class;
 
     /**
      * @return array<string, mixed>
@@ -21,7 +21,7 @@ class OwnerFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name,
+            'url' => $this->faker->url() . '/image.jpg',
         ];
     }
 }

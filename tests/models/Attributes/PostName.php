@@ -12,10 +12,8 @@ use Worksome\ModelAttributes\Tests\Models\User;
 
 class PostName extends ModelAttribute
 {
-    public $table = 'posts';
-
     public const KEY = 'id';
-
+    public $table = 'posts';
     protected $primaryKey = self::KEY;
 
     public static function attributeGlobalScope(Builder $query): void

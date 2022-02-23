@@ -8,14 +8,11 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 use Worksome\ModelAttributes\ModelAttribute;
 use Worksome\ModelAttributes\Tests\Models\Role;
-use Worksome\ModelAttributes\Tests\Models\User;
 
 class RoleName extends ModelAttribute
 {
-    public $table = 'roles';
-
     public const KEY = 'id';
-
+    public $table = 'roles';
     protected $primaryKey = self::KEY;
 
     public static function attributeGlobalScope(Builder $query): void

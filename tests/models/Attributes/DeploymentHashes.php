@@ -7,10 +7,8 @@ namespace Worksome\ModelAttributes\Tests\Models\Attributes;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 use Worksome\ModelAttributes\ModelAttribute;
-use Worksome\ModelAttributes\Tests\Models\Car;
 use Worksome\ModelAttributes\Tests\Models\Deployment;
 use Worksome\ModelAttributes\Tests\Models\Environment;
-use Worksome\ModelAttributes\Tests\Models\Owner;
 
 class DeploymentHashes extends ModelAttribute
 {

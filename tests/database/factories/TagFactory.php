@@ -4,16 +4,16 @@ namespace Worksome\ModelAttributes\Tests\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Foundation\Testing\WithFaker;
-use Worksome\ModelAttributes\Tests\Models\Owner;
+use Worksome\ModelAttributes\Tests\Models\Tag;
 
 /**
- * @extends Factory<Owner>
+ * @extends Factory<Tag>
  */
-class OwnerFactory extends Factory
+class TagFactory extends Factory
 {
     use WithFaker;
 
-    protected $model = Owner::class;
+    protected $model = Tag::class;
 
     /**
      * @return array<string, mixed>
@@ -21,7 +21,10 @@ class OwnerFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name,
+            'name' => $this->faker->randomElement([
+                'clean', 'clear', 'clever', 'cloudy', 'clumsy',
+                'delightful', 'depressed', 'determined'
+            ]),
         ];
     }
 }
