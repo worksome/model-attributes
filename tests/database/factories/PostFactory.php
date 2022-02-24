@@ -21,6 +21,7 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
+            'user_id' => UserFactory::new(),
             'name' => $this->faker->randomElement([
                 'How to cook things',
                 '10 reasons to like testing',
@@ -28,13 +29,5 @@ class PostFactory extends Factory
                 'The new Star Wars block buster movie sets new earnings record on the first weekend',
             ]),
         ];
-    }
-
-    public function configure()
-    {
-        $user = UserFactory::new()->create();
-
-        return parent::configure()
-            ->afterMaking(fn(Post $post) => $post->user()->associate($user));
     }
 }

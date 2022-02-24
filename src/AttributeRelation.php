@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Worksome\ModelAttributes;
 
+use BadMethodCallException;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
@@ -83,7 +84,7 @@ class AttributeRelation extends Relation
         }
 
         if ($results instanceof Enumerable) {
-            return $results->map(fn ($result) => $result->getValue());
+            return $results->map(fn($result) => $result->getValue());
         }
 
         throw new InvalidArgumentException("The provided relationship result is invalid.");
@@ -91,12 +92,15 @@ class AttributeRelation extends Relation
 
     public function __call($name, $arguments)
     {
+        if (!method_exists($this->relation, $name)) {
+            throw new BadMethodCallException("There is no {$name}() method on " . get_class($this->relation));
+        }
+
         return $this->relation->{$name}(...$arguments);
     }
 
     /**
      * @param string $key
-     * @return mixed
      */
     public function __get($key): mixed
     {

@@ -1,9 +1,6 @@
-# This is my package model-attributes
+[![run-tests](https://github.com/worksome/model-attributes/actions/workflows/run-tests.yml/badge.svg)](https://github.com/worksome/model-attributes/actions/workflows/run-tests.yml)
+[![PHPStan](https://github.com/worksome/model-attributes/actions/workflows/phpstan.yml/badge.svg)](https://github.com/worksome/model-attributes/actions/workflows/phpstan.yml)
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/worksome/model-attributes.svg?style=flat-square)](https://packagist.org/packages/worksome/model-attributes)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/worksome/model-attributes/run-tests?label=tests)](https://github.com/worksome/model-attributes/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/worksome/model-attributes/Check%20&%20fix%20styling?label=code%20style)](https://github.com/worksome/model-attributes/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/worksome/model-attributes.svg?style=flat-square)](https://packagist.org/packages/worksome/model-attributes)
 
 Model attributes are dynamically generated values for models. They are used as eloquent relationships which can be eager loaded.
 

@@ -72,8 +72,6 @@ final class Post extends Model
                 $this->tags()->getTable(),
                 $this->tags()->getQualifiedForeignPivotKeyName(),
                 $this->tags()->getQualifiedRelatedPivotKeyName(),
-                //                $this->tags()->getQualifiedParentKeyName(),
-                //                $this->tags()->getQualifiedRelatedKeyName(),
             )
         );
     }

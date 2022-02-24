@@ -35,8 +35,8 @@ it('can retrieve a HasOne relationship', function () {
 
 it('can retrieve a HasMany relationship', function () {
     // https://laravel.com/docs/9.x/eloquent-relationships#one-to-many
-    PostFactory::new()->count(3)->create();
-    $user = User::firstOrFail();
+    $user = UserFactory::new()->create();
+    PostFactory::new()->count(3)->for($user)->create();
 
     expect($user->postNames)->each->toBeInstanceOf(PostName::class);
     expect($user->postNames->count())->toEqual(3);

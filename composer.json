@@ -1,9 +1,10 @@
 {
     "name": "worksome/model-attributes",
-    "description": "This is my package model-attributes",
+    "description": "Model attributes are dynamically generated data on models added as a relationship.",
     "keywords": [
         "Worksome",
         "laravel",
+        "eloquent",
         "model-attributes"
     ],
     "homepage": "https://github.com/worksome/model-attributes",
