@@ -12,6 +12,7 @@ use Worksome\ModelAttributes\Tests\Models\Tag;
 class TagName extends ModelAttribute
 {
     public const KEY = 'id';
+
     public $table = 'tags';
     protected $primaryKey = self::KEY;
 

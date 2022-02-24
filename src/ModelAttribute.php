@@ -32,7 +32,7 @@ abstract class ModelAttribute extends Model
     /**
      * Defines the attribute global scope that must be added to the model attribute.
      *
-     * @param Builder $query
+     * @param Builder<static> $query
      */
     abstract public static function attributeGlobalScope(Builder $query): void;
 

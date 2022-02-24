@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Enumerable;
+use InvalidArgumentException;
 
 /**
- * @template TValue
- * @extends Relation<TValue>
+ * @template TRelatedModel of \Illuminate\Database\Eloquent\Model
+ * @extends Relation<TRelatedModel>
  */
 class AttributeRelation extends Relation
 {
@@ -48,6 +49,7 @@ class AttributeRelation extends Relation
 
     /**
      * @param array|Model[] $models
+     * @param Collection<int, TRelatedModel> $results
      * @return array|Model[] $results
      */
     public function match(array $models, Collection $results, $relation): array
@@ -65,19 +67,26 @@ class AttributeRelation extends Relation
     }
 
     /**
-     * @return TValue|null
+     * @return TRelatedModel|Enumerable<int, TRelatedModel>|null
      */
     public function getResults(): mixed
     {
         $results = $this->relation->getResults();
 
-        if ($results instanceof Enumerable) {
-            $results = $results->each?->getValue();
-        } else {
-            $results = $results?->getValue();
+        if ($results === null) {
+            return null;
         }
 
-        return $results;
+        if ($results instanceof ModelAttribute) {
+            // @phpstan-ignore-next-line
+            return $results->getValue();
+        }
+
+        if ($results instanceof Enumerable) {
+            return $results->map(fn ($result) => $result->getValue());
+        }
+
+        throw new InvalidArgumentException("The provided relationship result is invalid.");
     }
 
     public function __call($name, $arguments)
@@ -92,7 +101,7 @@ class AttributeRelation extends Relation
     public function __get($key): mixed
     {
         if (property_exists($this->relation, $key) === false) {
-            throw new \InvalidArgumentException("There is no '{$key}' property on " . $this->relation::class);
+            throw new InvalidArgumentException("There is no '{$key}' property on " . $this->relation::class);
         }
 
         return $this->relation->{$key};

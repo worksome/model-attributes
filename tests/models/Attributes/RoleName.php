@@ -12,6 +12,7 @@ use Worksome\ModelAttributes\Tests\Models\Role;
 class RoleName extends ModelAttribute
 {
     public const KEY = 'id';
+
     public $table = 'roles';
     protected $primaryKey = self::KEY;
 

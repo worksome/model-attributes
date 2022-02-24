@@ -13,6 +13,7 @@ use Worksome\ModelAttributes\Tests\Models\User;
 class PostName extends ModelAttribute
 {
     public const KEY = 'id';
+
     public $table = 'posts';
     protected $primaryKey = self::KEY;
 
