@@ -7,7 +7,6 @@ namespace Worksome\ModelAttributes;
 use BadMethodCallException;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
 abstract class ModelAttribute extends Model
 {

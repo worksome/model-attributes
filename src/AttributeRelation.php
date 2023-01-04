@@ -13,6 +13,7 @@ use InvalidArgumentException;
 
 /**
  * @template TRelatedModel of \Illuminate\Database\Eloquent\Model
+ *
  * @extends Relation<TRelatedModel>
  */
 class AttributeRelation extends Relation
@@ -41,6 +42,7 @@ class AttributeRelation extends Relation
 
     /**
      * @param array<int, Model> $models
+     *
      * @return array<int, Model>
      */
     public function initRelation(array $models, $relation): array
@@ -49,8 +51,9 @@ class AttributeRelation extends Relation
     }
 
     /**
-     * @param array|Model[] $models
+     * @param array|Model[]                  $models
      * @param Collection<int, TRelatedModel> $results
+     *
      * @return array|Model[] $results
      */
     public function match(array $models, Collection $results, $relation): array
@@ -79,7 +82,6 @@ class AttributeRelation extends Relation
         }
 
         if ($results instanceof ModelAttribute) {
-            // @phpstan-ignore-next-line
             return $results->getValue();
         }
 
@@ -92,7 +94,7 @@ class AttributeRelation extends Relation
 
     public function __call($name, $arguments)
     {
-        if (!method_exists($this->relation, $name)) {
+        if (! method_exists($this->relation, $name)) {
             throw new BadMethodCallException("There is no {$name}() method on " . get_class($this->relation));
         }
 

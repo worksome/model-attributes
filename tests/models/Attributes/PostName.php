@@ -24,7 +24,9 @@ class PostName extends ModelAttribute
 
         $query
             ->addSelect(DB::raw($postModel->getQualifiedKeyName() . ' AS ' . self::KEY))
-            ->addSelect(DB::raw($postModel->qualifyColumn($userModel->getForeignKey()) . ' AS ' . $userModel->getForeignKey()))
+            ->addSelect(
+                DB::raw($postModel->qualifyColumn($userModel->getForeignKey()) . ' AS ' . $userModel->getForeignKey())
+            )
             ->addSelect(DB::raw('("post: " || name) AS post_name')); // sqlite concatenation operator
     }
 }

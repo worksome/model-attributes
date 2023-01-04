@@ -30,14 +30,14 @@ class FullName extends ModelAttribute
 
     public function getKeyName()
     {
-//        return $this->primaryKey; // framework version
-//        return 'id'; // framework convention
+        //        return $this->primaryKey; // framework version
+        //        return 'id'; // framework convention
         return self::KEY;
     }
 
     public function getForeignKey()
     {
-//        return Str::snake(class_basename($this)).'_'.$this->getKeyName(); // framework version
+        //        return Str::snake(class_basename($this)).'_'.$this->getKeyName(); // framework version
         return 'full_name_id'; // framework version
     }
 }

@@ -11,7 +11,7 @@ class TestCase extends Orchestra
     {
         config()->set('database.default', 'testing');
 
-        foreach (File::allFiles(__DIR__. '/database/migrations') as $file) {
+        foreach (File::allFiles(__DIR__ . '/database/migrations') as $file) {
             (include $file->getRealPath())->up();
         }
     }
