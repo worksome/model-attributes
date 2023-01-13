@@ -23,7 +23,6 @@ use Worksome\ModelAttributes\Tests\Models\Attributes\PostName;
 use Worksome\ModelAttributes\Tests\Models\Attributes\RoleName;
 use Worksome\ModelAttributes\Tests\Models\Attributes\TagName;
 use Worksome\ModelAttributes\Tests\Models\Attributes\UserName;
-use Worksome\ModelAttributes\Tests\Models\User;
 
 it('can retrieve a HasOne relationship', function () {
     // https://laravel.com/docs/9.x/eloquent-relationship#one-to-one

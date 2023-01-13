@@ -25,7 +25,11 @@ class DeploymentHashes extends ModelAttribute
 
         $query->addSelect([
             DB::raw($deploymentModel->getQualifiedKeyName() . ' AS ' . self::KEY),
-            DB::raw($deploymentModel->qualifyColumn($environmentModel->getForeignKey()) . ' AS ' . $environmentModel->getForeignKey()),
+            DB::raw(
+                $deploymentModel->qualifyColumn(
+                    $environmentModel->getForeignKey()
+                ) . ' AS ' . $environmentModel->getForeignKey()
+            ),
             'commit_hash',
         ]);
     }
